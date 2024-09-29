@@ -1,0 +1,66 @@
+<!-- SOOO you're a curious one arent you??? -->
+<!-- Stealing my code without proper credits is gonna make you suffer -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Dheeran's Website</title>
+  <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <div>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  </div>
+
+</head>
+
+<body class="centered" style="background-color:black;">
+  <div>
+    <h1 class="htext">Dheeran's<br>Website</h2>
+    <h3 class="subtext">Hey there! welcome to my website.</h3>
+  </div>
+
+  <!-- Buttons -->
+
+  <div class="btn-group">
+
+    <button onclick="confirmAction()" ;">Home</button>
+    <button onclick="window.location.href='/sub/about.htm';">About</button>
+    <button onclick="window.location.href='/sub/contact.htm';">Contact</button>
+    <button onclick="window.location.href='/sub/projects.htm';">Projects</button>
+    <button onclick="window.location.href='/sub/credits.htm';">Credits</button>
+  </div>
+
+  <script>
+    function confirmAction() {
+      let confirmAction = confirm("You are already on the homepage.");
+      if (confirmAction) {
+        alert("Yeah yeah you can close it now.");
+      } else {
+        alert("You chose cancel? too bad either option does the same thing.");
+      }
+    }
+  </script>
+
+</body>  
+
+</html>
