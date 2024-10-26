@@ -1,50 +1,40 @@
-<!-- SOOO you're a curious one arent you??? -->
+<!-- SOOO you're a curious one aren't you??? -->
 <!-- Stealing my code without proper credits is gonna make you suffer and uh this code is a fork from my old project, https://dheeran.is-amaz.ing/ -->
 
-
 <!DOCTYPE html>
-
 <html>
 <head>
-
   <title>Blackwing Official.</title>
   <link rel="icon" type="image/x-icon" href="/images/icon.ico">
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
 
-  <div>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&family=VT323&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=Poppins&display=swap" rel="stylesheet">
-  </div>
-
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=Poppins&display=swap" rel="stylesheet">
 </head>
-<body class="centered" style="background-color:black; background-image: url('../images/bg.png');  background-repeat: no-repeat;  background-size: cover;">
+<body class="centered" style="background-color:black; background-image: url('../images/bg.png'); background-repeat: no-repeat; background-size: cover;">
   <div>
-    <h1>Team<br>Blackwing.</h2>
+    <h1>Team<br>Blackwing.</h1>
     <p>Elevating performance, Defining speed.</p>
   </div>
 
   <!-- Buttons -->
-
   <div class="btn-group">
-
-    <button onclick="confirmAction()" ;">Home</button>
+    <button onclick="confirmAction()">Home</button>
     <button onclick="window.location.href='/sub/about.htm';">About</button>
-    <button onclick="showTrackingWarning()" ;">Portfolio</button>
+    <button onclick="showTrackingWarning()">Portfolio</button>
     <button onclick="window.location.href='/sub/contact.htm';">Contact</button>
   </div>
 
@@ -57,18 +47,16 @@
         alert("Player chose cancel! aw either option does the same thing. You may close it now.");
       }
     }
-  </script>
-  <script>
+
     function showTrackingWarning() {
-      const warningMessage = "Gentle reminder : Since our portfolio has been tampered with by unwanted people, we took extra measures. To continue to our portfolio, confirm.";
+      const warningMessage = "Gentle reminder: Since our portfolio has been tampered with by unwanted people, we took extra measures. To continue to our portfolio, confirm.";
       const userConsent = confirm(warningMessage);
       if (!userConsent) {
-        window.location.href = "";
+        window.location.href = ""; // Change this if you want to redirect to a specific page
       } else {
         window.location.href = "https://www.canva.com/design/DAGSILB1G-8/f11FKSB-z-cFEXA75mIoJg/view?utm_content=DAGSILB1G-8&utm_campaign=designshare&utm_medium=link&utm_source=editor";
       }
     }
-    window.onload = showTrackingWarning;
   </script>
-</body>  
+</body>
 </html>
