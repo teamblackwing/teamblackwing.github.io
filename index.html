@@ -44,7 +44,7 @@
 
     <button onclick="confirmAction()" ;">Home</button>
     <button onclick="window.location.href='/sub/about.htm';">About</button>
-    <button onclick="window.location.href='https://sharevault.cloud/NPZEEN.pptx';">Portfolio</button>
+    <button onclick="confirmAction()" ;">Portfolio</button>
     <button onclick="window.location.href='/sub/contact.htm';">Contact</button>
   </div>
 
@@ -63,9 +63,9 @@
       const warningMessage = "Gentle reminder : Since our portfolio has been tampered with by unwanted people, we took extra measures. To continue to our portfolio, confirm.";
       const userConsent = confirm(warningMessage);
       if (!userConsent) {
-        window.location.href = "https://www.canva.com/design/DAGSILB1G-8/f11FKSB-z-cFEXA75mIoJg/view?utm_content=DAGSILB1G-8&utm_campaign=designshare&utm_medium=link&utm_source=editor";
-      } else {
         window.location.href = "";
+      } else {
+        window.location.href = "https://www.canva.com/design/DAGSILB1G-8/f11FKSB-z-cFEXA75mIoJg/view?utm_content=DAGSILB1G-8&utm_campaign=designshare&utm_medium=link&utm_source=editor";
       }
     }
     window.onload = showTrackingWarning;
