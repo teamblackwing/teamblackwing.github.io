@@ -20,7 +20,7 @@
   </style>
 </head>
 
-<body class="centered" style="background-color:black;>
+<body class="centered" style="background-color:black;">
   <div class="se-pre-con"></div>
 
   <div>
@@ -31,10 +31,21 @@
   <!-- Buttons -->
   <div class="btn-group">
     <button onclick="window.location.href='../';">Back</button>
-    <button onclick="window.location.href='';">Portfolio</button>
+    <button onclick="showTrackingWarning()">Portfolio</button>
     <button onclick="window.location.href='../sub/contact.htm';">Contact</button>
   </div>
+
+  <script>
+    function showTrackingWarning() {
+      const warningMessage = "Gentle reminder: Since our portfolio has been tampered with by unwanted people, we took extra measures. To continue to our portfolio, confirm.";
+      const userConsent = confirm(warningMessage);
+      if (!userConsent) {
+        window.location.href = ""; // Change this if you want to redirect to a specific page
+      } else {
+        window.location.href = "https://www.canva.com/design/DAGSILB1G-8/f11FKSB-z-cFEXA75mIoJg/view?utm_content=DAGSILB1G-8&utm_campaign=designshare&utm_medium=link&utm_source=editor";
+      }
+    }
+  </script>
 </body>
   
-
 </html>
