@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts</title>
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: black;
+            background-image: url('../images/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+
+        .centered {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            opacity: 0; /* Initial opacity for fade-in */
+            transition: opacity 0.5s ease-in-out; /* Fade transition */
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .btn-group button {
+            background-color: #151515;
+            letter-spacing: 1px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 24px;
+            line-height: 1;
+            padding: 15px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-group button:hover {
+            background-color: #252525;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .btn-group {
+                grid-template-columns: 1fr;
+            }
+        }
+        #fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="fade-overlay"></div>
+    <div class="centered">
+        <h1>Socials.</h1>
+        <div class="btn-group">
+            <button onclick="fadeOutAndNavigate('../index.html');"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="window.location.href='https://github.com/teamblackwing';"><i class="fab fa-github"></i></button>
+            <button onclick="window.location.href='tel:0529289838';"><i class="fas fa-phone"></i></button>
+            <button onclick="window.location.href='https://www.instagram.com/blackwingf1/';"><i class="fab fa-instagram"></i></button>
+            <button onclick="window.location.href='https://discordapp.com/users/1165183086875648063';"><i class="fab fa-discord"></i></button>
+            <button onclick="window.location.href='mailto:blackwingzf1@gmail.com';"><i class="fas fa-envelope"></i></button>
+            <button onclick="window.location.href='https://www.threads.net/@teamblackwing';"><i class="fas fa-at"></i></button>
+            <button onclick="window.location.href='https://www.tiktok.com/@blackwingsf1?lang=en';"><i class="fab fa-tiktok"></i></button>
+        </div>
+        <footer class="footer">
+            <p>
+                F1 in Schools. - <a href="https://www.instagram.com/dr9uu/">Made with ♥</a>
+            </p>
+        </footer>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('.centered').style.opacity = 1;
+            document.getElementById('fade-overlay').style.opacity = 0;
+        });
+
+        function fadeOutAndNavigate(url) {
+            let overlay = document.getElementById('fade-overlay');
+            overlay.style.opacity = 1;
+            let content = document.querySelector('.centered');
+            content.style.opacity = 0;
+            setTimeout(function() {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
