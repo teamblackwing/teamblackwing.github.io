@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Fira+Sans+Condensed:wght@400;700&family=Poppins&family=Archivo+Black&display=swap" rel="stylesheet">
     <style>
-        /* ... (Your existing CSS) ... */
-
         #portfolio-message, #achievement-message {
             position: fixed;
             top: 20px;
@@ -37,7 +35,7 @@
             height: 100%;
             background-color: black;
             transition: opacity 0.5s ease-in-out;
-            pointer-events: none; /* Corrected line */
+            pointer-events: none; 
         }
         .content-container {
             opacity: 0;
@@ -57,9 +55,9 @@
 
             <div class="btn-group">
                 <button onclick="confirmAction();">Home</button>
-                <button onclick="fadeOutAndNavigate('/sub/about.html');">About</button>
+                <button onclick="fadeOutAndNavigate('/about');">About</button>
                 <button onclick="showPortfolioMessage();">Portfolio</button>
-                <button onclick="fadeOutAndNavigate('/sub/contact.html');">Contact</button>
+                <button onclick="fadeOutAndNavigate('/contact');">Contact</button>
             </div>
         </div>
     </div>
