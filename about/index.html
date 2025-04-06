@@ -27,9 +27,18 @@
             font-size: 18px;
         }
 
+        /* Adjust for larger screens */
+        @media screen and (min-width: 801px) {
+            .paragraph-container {
+                padding: 0 20px; /* Add padding for larger screens */
+            }
+        }
+
         @media screen and (max-width: 800px) {
             .paragraph-container {
                 padding: 0 2vw;
+                max-width: 100%;
+                margin: 0;
             }
             p {
                 font-size: 16px;
@@ -39,6 +48,8 @@
         @media screen and (max-width: 500px) {
             .paragraph-container {
                 padding: 0 3vw;
+                max-width: 100%;
+                margin: 0;
             }
             p {
                 font-size: 16px;
@@ -48,16 +59,25 @@
         @media screen and (max-width: 400px) {
             .paragraph-container {
                 padding: 0 2vw;
+                max-width: 100%;
+                margin: 0;
             }
             p {
                 font-size: 14px;
             }
         }
-        .btn-group button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        @media screen and (max-width: 394px) {
+            .paragraph-container {
+                padding: 0 18px;
+                max-width: 100%;
+                margin: 0;
+            }
+            p {
+                font-size: 14px;
+            }
         }
+
         #portfolio-message {
             position: fixed;
             top: 20px;
@@ -73,7 +93,9 @@
             font-family: 'Press Start 2P', monospace;
             font-size: 14px;
         }
+
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
         #fade-overlay {
             position: fixed;
             top: 0;
@@ -84,6 +106,7 @@
             transition: opacity 0.5s ease-in-out;
             pointer-events: none;
         }
+
         .content-container {
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
@@ -104,10 +127,10 @@
                 </div>
             </div>
 
-            <div class="btn-group">
-                <button onclick="fadeOutAndNavigate('../');"><i class="fas fa-arrow-left"></i></button>
-                <button onclick="showPortfolioMessage();">Portfolio</button>
-                <button onclick="fadeOutAndNavigate('contact.html');">Contact</button>
+            <div class="button-container">
+                <button class="nav-button" onclick="fadeOutAndNavigate('../');"><i class="fas fa-arrow-left"></i></button>
+                <button class="nav-button" onclick="showPortfolioMessage();">Portfolio</button>
+                <button class="nav-button" onclick="fadeOutAndNavigate('../contact');">Contact</button>
             </div>
             <div id="portfolio-message"></div>
         </div>
@@ -127,6 +150,7 @@
                 window.location.href = url;
             }, 500);
         }
+
         function showPortfolioMessage() {
             let message = document.getElementById("portfolio-message");
             message.textContent = "As clearly stated on the homepage, kindly check the email or contact Blackwing through socials for the portfolio.";

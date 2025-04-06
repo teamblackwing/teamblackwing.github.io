@@ -20,6 +20,7 @@ body {
   background-size: cover;
   background-color: black;
   z-index: -1;
+  background-position: center; /* Center the background image */
 }
 
 .content-container {
@@ -62,48 +63,52 @@ h1 {
   line-height: 0.7;
 }
 
-.btn-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    width: auto;
 }
 
-.btn-group button {
+.nav-button {
   background-color: #1e1e1e;
   letter-spacing: 1px;
   border: none;
   color: white;
   cursor: pointer;
   font-family: 'VT323', monospace;
-  margin: 5px;
-  border-radius: 20px;
+  margin: 0 10px;
+  border-radius: 25px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   font-size: 16px;
-  line-height: 1; /* Explicit line height */
+  line-height: 1;
   width: 120px;
   text-align: center;
   box-sizing: border-box;
-  padding: 12px 0; /* Adjusted padding */
-  -webkit-appearance: none; /* Reset button styles */
-  -moz-appearance: none; /* Reset button styles */
-  appearance: none; /* Reset button styles */
+  padding: 18px 25px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-group button:first-child {
-  margin-left: 5px;
+.nav-button:first-child {
+  margin-left: 0;
 }
 
-.btn-group button:last-child {
-  margin-right: 5px;
+.nav-button:last-child {
+  margin-right: 0;
 }
 
-.btn-group button:hover {
+.nav-button:hover {
   background-color: #333333;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.btn-group:after {
+.button-container:after {
   content: "";
   clear: both;
   display: table;
@@ -119,71 +124,114 @@ h1 {
   align-items: center;
 }
 
-/* Mobile Styles */
-@media screen and (max-width: 500px) {
-  .btn-group {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0 10px;
-  }
-
-  .btn-group button {
-    margin: 10px 0;
-    width: 100%;
-    padding: 18px 0; /* Adjusted padding */
-    font-size: 17px; /* Adjusted font size */
-    line-height: 1; /* Explicit line height */
-    box-sizing: border-box;
-    -webkit-appearance: none; /* Reset button styles */
-    -moz-appearance: none; /* Reset button styles */
-    appearance: none; /* Reset button styles */
-  }
-
-  .btn-group button:first-child {
-    margin-top: 0;
-  }
-
-  .btn-group button:last-child {
-    margin-bottom: 0;
-  }
-
-  h1 {
-    font-size: 50px;
-    margin-bottom: 8px;
-  }
-
-  p {
-    font-size: 20px;
-    margin: 8px 0;
-  }
-
-  .btn-group button {
-    font-size: 18px;
-    padding: 14px 28px;
-  }
+.dummy-nav-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    display: none;
 }
 
-@media screen and (max-width: 400px) {
-  .btn-group {
-    padding: 0 8px;
-  }
+/* Mobile Styles (Override existing mobile styles) */
+@media screen and (max-width: 500px) {
+    .button-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 30px;
+    }
 
-  h1 {
-    font-size: 40px;
-    margin-bottom: 6px;
-  }
+    .nav-button {
+        margin: 10px 0;
+        width: 100%;
+        padding: 18px 28px;
+        font-size: 17px;
+        line-height: 1;
+        box-sizing: border-radius: 50px;
+        border: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 25px;
+    }
 
-  p {
-    font-size: 18px;
-    margin: 6px 0;
-  }
+    .nav-button::after {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-bottom: 2px;
+    }
 
-  .btn-group button {
-    font-size: 16px;
-    padding: 12px 24px;
-    box-sizing: border-box;
-    -webkit-appearance: none; /* Reset button styles */
-    -moz-appearance: none; /* Reset button styles */
-    appearance: none; /* Reset button styles */
-  }
+    .nav-button:first-child::after {
+        padding-left: 19px;
+        content: "\f007"; /* User icon (Home) */
+    }
+
+    .nav-button:nth-child(2)::after {
+        content: "\f0b0"; /* Briefcase icon (About) */
+    }
+
+    .nav-button:nth-child(3)::after {
+        content: "\f095"; /* Phone icon (Portfolio) */
+    }
+
+    .nav-button:nth-child(4)::after {
+        content: "\f0e0"; /* Envelope icon (Contact) */
+    }
+
+    .nav-button:hover {
+        background-color: inherit;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+
+    .dummy-nav-button {
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .button-container {
+        padding: 0 8px;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 6px;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 6px 0;
+    }
+
+    .nav-button {
+        font-size: 16px;
+        padding: 12px 24px;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
 }

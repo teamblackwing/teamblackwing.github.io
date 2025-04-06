@@ -1,1 +1,1 @@
-// Im not fond of js for some reason so f*ck off
+// Im not fond of js for some reason so profantiy off (edited as it was part of an old project)

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Contacts</title>
     <link rel="icon" type="image/x-icon" href="/images/icon.ico">
@@ -23,7 +24,9 @@
             background-image: url('../images/bg.png');
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: center;
             color: white;
+            overflow: hidden;
         }
 
         .centered {
@@ -33,13 +36,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            opacity: 0; /* Initial opacity for fade-in */
-            transition: opacity 0.5s ease-in-out; /* Fade transition */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out;
         }
 
         .btn-group {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-gap: 10px;
             margin-bottom: 20px;
             max-width: 600px;
@@ -75,11 +78,6 @@
             color: white;
         }
 
-        @media screen and (max-width: 600px) {
-            .btn-group {
-                grid-template-columns: 1fr;
-            }
-        }
         #fade-overlay {
             position: fixed;
             top: 0;
@@ -89,15 +87,31 @@
             background-color: black;
             transition: opacity 0.5s ease-in-out;
             pointer-events: none;
+            opacity: 1; /* Initially visible */
         }
     </style>
+    <script>
+        window.onload = function() {
+            var fadeOverlay = document.getElementById('fade-overlay');
+            var centeredContent = document.querySelector('.centered');
+
+            // Fade out the overlay
+            fadeOverlay.style.opacity = '0';
+
+            // Fade in the centered content after the overlay is gone
+            setTimeout(function() {
+                centeredContent.style.opacity = '1';
+            }, 500); // Match the transition duration
+        };
+    </script>
 </head>
+
 <body>
     <div id="fade-overlay"></div>
     <div class="centered">
         <h1>Socials.</h1>
         <div class="btn-group">
-            <button onclick="fadeOutAndNavigate('../');"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="window.location.href='../';"><i class="fas fa-arrow-left"></i></button>
             <button onclick="window.location.href='https://github.com/teamblackwing';"><i class="fab fa-github"></i></button>
             <button onclick="window.location.href='tel:0529289838';"><i class="fas fa-phone"></i></button>
             <button onclick="window.location.href='https://www.instagram.com/blackwingf1/';"><i class="fab fa-instagram"></i></button>
@@ -108,25 +122,10 @@
         </div>
         <footer class="footer">
             <p>
-                F1 in Schools. - <a href="https://www.instagram.com/dr9uu/">Made with ♥</a>
+                <a href="https://www.instagram.com/dr9uu/">Made with ♥ by Dheeran</a>
             </p>
         </footer>
     </div>
-    <script>
-        window.addEventListener('load', function() {
-            document.querySelector('.centered').style.opacity = 1;
-            document.getElementById('fade-overlay').style.opacity = 0;
-        });
-
-        function fadeOutAndNavigate(url) {
-            let overlay = document.getElementById('fade-overlay');
-            overlay.style.opacity = 1;
-            let content = document.querySelector('.centered');
-            content.style.opacity = 0;
-            setTimeout(function() {
-                window.location.href = url;
-            }, 500);
-        }
-    </script>
 </body>
+
 </html>

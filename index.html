@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Fira+Sans+Condensed:wght@400;700&family=Poppins&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
         #portfolio-message, #achievement-message {
             position: fixed;
@@ -35,7 +36,7 @@
             height: 100%;
             background-color: black;
             transition: opacity 0.5s ease-in-out;
-            pointer-events: none; 
+            pointer-events: none;
         }
         .content-container {
             opacity: 0;
@@ -53,11 +54,13 @@
                 <p>Elevating performance, Defining speed.</p>
             </div>
 
-            <div class="btn-group">
-                <button onclick="confirmAction();">Home</button>
-                <button onclick="fadeOutAndNavigate('/about');">About</button>
-                <button onclick="showPortfolioMessage();">Portfolio</button>
-                <button onclick="fadeOutAndNavigate('/contact');">Contact</button>
+            <div class="button-container">
+                <button id="dummy-btn-start" class="dummy-nav-button"></button>
+                <button id="home-btn" class="nav-button">Home</button>
+                <button id="about-btn" class="nav-button">About</button>
+                <button id="portfolio-btn" class="nav-button">Portfolio</button>
+                <button id="contact-btn" class="nav-button">Contact</button>
+                <button id="dummy-btn-end" class="dummy-nav-button"></button>
             </div>
         </div>
     </div>
@@ -102,6 +105,12 @@
                 message.style.opacity = 0;
             }, 5000);
         }
+
+        // Add event listeners
+        document.getElementById('home-btn').addEventListener('click', confirmAction);
+        document.getElementById('about-btn').addEventListener('click', function() { fadeOutAndNavigate('/about'); });
+        document.getElementById('portfolio-btn').addEventListener('click', showPortfolioMessage);
+        document.getElementById('contact-btn').addEventListener('click', function() { fadeOutAndNavigate('/contact'); });
     </script>
 </body>
 </html>
