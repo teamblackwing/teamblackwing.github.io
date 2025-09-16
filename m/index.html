@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeran's Mobile Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=VT323&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'VT323', monospace;
+            background-color: black;
+            color: white;
+        }
+
+        .tile-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            opacity: 0.9;
+            z-index: 2;
+        }
+
+        .tile {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tile-gif-bg {
+            position: relative;
+            overflow: hidden;
+            background-color: transparent !important;
+        }
+
+        .tile-gif-bg .gif-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .tile-gif-bg span,
+        .tile-gif-bg h2,
+        .tile-gif-bg p {
+            position: relative;
+            z-index: 2;
+        }
+
+        #fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .content-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vhs-flicker-text {
+            text-shadow: 0.06rem 0 0.06rem #f20000, -0.125rem 0 0.06rem #75fa69;
+            animation-duration: 0.01s;
+            animation-name: textflicker;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            letter-spacing: 2px;
+        }
+
+        @keyframes textflicker {
+            from {
+                text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+            }
+            to {
+                text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+            }
+        }
+        
+        .tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 1px,
+                rgba(0, 0, 0, 0.2) 1px,
+                rgba(0, 0, 0, 0.2) 2px
+            );
+            pointer-events: none;
+            z-index: 3;
+            opacity: 0.9;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function checkScreenWidthAndRedirectToDesktop() {
+            if (window.innerWidth >= 700) {
+                window.location.href = '../';
+            }
+        }
+
+        checkScreenWidthAndRedirectToDesktop();
+    </script>
+</head>
+
+<body class="bg-black text-white">
+    <div id="fade-overlay"></div>
+
+    <div class="content-wrapper">
+        <div class="grid grid-cols-2 gap-4 p-4 pb-8 box-border flex-grow">
+
+            <div
+                class="tile bg-black flex flex-col justify-end items-start p-4 relative overflow-hidden min-h-[250px] col-span-2">
+                <h2 class="text-5xl mb-2 lowercase z-10 vhs-flicker-text" style="opacity: 0.5;">
+                    Dheeran's Website
+                </h2>
+                <h2 class="text-5xl mb-2 lowercase z-10 vhs-flicker-text" style="opacity: 0.75;">
+                    Dheeran's
+                    Website
+                </h2>
+                <h2 class="text-5xl mb-2 lowercase z-10 vhs-flicker-text" style="opacity: 1;">
+                    Dheeran's Website
+                </h2>
+
+                <p class="text-gray-400 text-base max-w-full z-10 vhs-flicker-text">Hey, I'm Dheeran, currently based in Dubai.
+                    I'm into graphic design, programming, penetration testing, cars and more.</p>
+            </div>
+            <a href="#" onclick="fadeOutAndNavigate('../about/'); return false;"
+                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg min-h-[150px] col-span-2">
+                <img src="https://www.premiumbeat.com/blog/wp-content/uploads/2020/04/Vaporwave-and-Synthwave-Free-Pack-Video-Game-Look.gif"
+                    alt="Animated Background" class="gif-background" />
+                <span class="text-xl lowercase z-10 vhs-flicker-text">about</span>
+            </a>
+
+            <a href="#" onclick="fadeOutAndNavigate('../contact/'); return false;"
+                class="tile bg-red-600 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-red-700 hover:scale-[0.98] tile-gif-bg min-h-[150px] col-span-2">
+                <img src="https://i.pinimg.com/originals/03/64/bc/0364bcac79f1fe22bdad755d137cb5cf.gif"
+                    alt="Animated Background" class="gif-background" />
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/new-post.png" alt="Mail Icon"
+                    class="tile-icon" />
+                <span class="text-xl lowercase z-10 vhs-flicker-text">contact</span>
+            </a>
+
+            <a href="#" onclick="fadeOutAndNavigate('../gallery/'); return false;"
+                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg min-h-[150px]">
+                <img src="https://i.pinimg.com/originals/80/eb/15/80eb15b74b0e953de799f32cb26a8c61.gif"
+                    alt="Animated Background" class="gif-background" />
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/pictures-folder.png" alt="Gallery Icon"
+                    class="tile-icon" />
+                <span class="text-xl lowercase z-10 vhs-flicker-text">gallery</span>
+            </a>
+
+            <a href="#" onclick="fadeOutAndNavigate('../projects/'); return false;"
+                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg min-h-[150px]">
+                <img src="https://i.pinimg.com/originals/54/c1/96/54c1963eaebc2c5f9d7632f07093b34f.gif"
+                    alt="Animated Background" class="gif-background" />
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/settings.png" alt="Projects Icon"
+                    class="tile-icon" />
+                <span class="text-xl lowercase z-10 vhs-flicker-text">projects</span>
+            </a>
+
+            <a href="#" onclick="fadeOutAndNavigate('../credits/'); return false;"
+                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg min-h-[150px]">
+                <img src="https://64.media.tumblr.com/8ab059228a9cf657db5455f5b1b29327/6f238f65909558d8-67/s540x810/86db62981113cb8cf8f79972de0918ef66aa8204.gif"
+                    alt="Animated Background" class="gif-background" />
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/portfolio.png" alt="Portfolio Icon"
+                    class="tile-icon" />
+                <span class="text-xl lowercase z-10 vhs-flicker-text">credits</span>
+            </a>
+
+            <a href="#" onclick="fadeOutAndNavigate('../downloads/'); return false;"
+                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg min-h-[150px]">
+                <img src="https://i.pinimg.com/originals/9c/6c/1d/9c6c1dd45a8c98dcb78b46f0f30bfc22.gif"
+                    alt="Animated Background" class="gif-background" />
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/download.png" alt="Downloads Icon"
+                    class="tile-icon" />
+                <span class="text-xl lowercase z-10 vhs-flicker-text">downloads</span>
+            </a>
+
+            <div
+                class="tile bg-black border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden tile-gif-bg min-h-[150px]">
+                <img src="https://i.pinimg.com/originals/e8/3b/09/e83b09228a9cf657db5455f5b1b29327.gif" alt="⠀⠀⠀⠀"
+                    class="gif-background" />
+                <h3 class="text-xl lowercase mb-1 z-10 vhs-flicker-text">Under Construction</h3>
+                <p class="text-gray-400 text-sm max-w-[90%] z-10 vhs-flicker-text">There's nothing here, not yet that is.
+                </p>
+            </div>
+
+            <div class="tile bg-black flex flex-col justify-end items-start p-4 relative overflow-hidden min-h-[150px]">
+                <h3 class="text-xl lowercase mb-1 z-10 vhs-flicker-text">Made with Love</h3>
+                <p class="text-gray-400 text-sm max-w-[90%] z-10 vhs-flicker-text">I sure do love building websites with HTML</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('fade-overlay').style.opacity = 0;
+            document.querySelector('.content-wrapper').style.opacity = 1;
+        });
+
+        function fadeOutAndNavigate(url) {
+            let overlay = document.getElementById('fade-overlay');
+            overlay.style.opacity = 1;
+            let content = document.querySelector('.content-wrapper');
+            content.style.opacity = 0;
+            setTimeout(function () {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

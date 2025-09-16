@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeran's Website - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'VT323', monospace;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #000;
+            border: 1px solid rgba(113, 128, 150, 0.5);
+            border-radius: 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            transition: all 0.2s ease-out;
+            position: relative;
+            overflow: hidden;
+            /* Added for ::before pseudo-element positioning */
+        }
+
+        .action-button:hover {
+            background-color: #1a1a1a;
+            transform: scale(0.98);
+        }
+
+        .action-button .gif-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .action-button span,
+        .action-button svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (min-width: 768px) {
+            .content-container h1 {
+                font-size: 4rem;
+            }
+
+            .content-container p {
+                font-size: 1.25rem;
+            }
+        }
+
+        #fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .content-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* VHS Text Flicker Effect */
+        .vhs-flicker-text {
+            text-shadow: 0.06rem 0 0.06rem #f20000, -0.125rem 0 0.06rem #75fa69;
+            animation-duration: 0.01s;
+            animation-name: textflicker;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            letter-spacing: 2px;
+        }
+
+        @keyframes textflicker {
+            from {
+                text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+            }
+            to {
+                text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+            }
+        }
+
+        /* CRT Line Effect for Action Button */
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 1px,
+                rgba(0, 0, 0, 0.2) 1px,
+                rgba(0, 0, 0, 0.2) 2px
+            );
+            pointer-events: none;
+            z-index: 3;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fade-overlay"></div>
+
+    <div class="content-wrapper">
+        <div class="content-container">
+            <h1 class="text-5xl md:text-6xl lowercase mb-6 vhs-flicker-text">Contact Dheeran</h1>
+
+            <p class="text-lg md:text-xl text-gray-300 mb-4 vhs-flicker-text">
+                Feel free to reach out through any of the platforms below. I'm probably active haha
+            </p>
+
+            <div class="flex flex-wrap gap-4 mt-8">
+                <a href="../" class="action-button">
+                    <img src="https://i.pinimg.com/originals/80/eb/15/80eb15b74b0e953de799f32cb26a8c61.gif"
+                        alt="Animated Background" class="gif-background" />
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span class="vhs-flicker-text">Back</span>
+                </a>
+                <a href="https://github.com/dheerankc" target="_blank" class="action-button">
+                    <img src="https://i.pinimg.com/originals/54/c1/96/54c1963eaebc2c5f9d7632f07093b34f.gif"
+                        alt="Animated Background" class="gif-background" />
+                    <span class="vhs-flicker-text">Github</span>
+                </a>
+                <a href="../phone" class="action-button">
+                    <img src="https://i.pinimg.com/originals/03/64/bc/0364bcac79f1fe22bdad755d137cb5cf.gif"
+                        alt="Animated Background" class="gif-background" />
+                    <span class="vhs-flicker-text">Phone</span>
+                </a>
+                <a href="https://www.youtube.com/channel/UCVrGFB_zMCA5Y1qOOtwGRhw?sub_confirmation=1" target="_blank"
+                    class="action-button">
+                    <img src="https://www.premiumbeat.com/blog/wp-content/uploads/2020/04/Vaporwave-and-Synthwave-Free-Pack-Video-Game-Look.gif"
+                        alt="Animated Background" class="gif-background" />
+                    <span class="vhs-flicker-text">Youtube</span>
+                </a>
+                <a href="https://discordapp.com/users/652490335578226709" target="_blank" class="action-button">
+                    <img src="https://64.media.tumblr.com/8ab059228a9cf657db5455f5b1b29327/6f238f65909558d8-67/s540x810/86db62981113cb8cf8f79972de0918ef66aa8204.gif"
+                        alt="Animated Background" class="gif-background" />
+                    <span class="vhs-flicker-text">Discord</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('fade-overlay').style.opacity = 0;
+            document.querySelector('.content-wrapper').style.opacity = 1;
+        });
+
+        function fadeOutAndNavigate(url) {
+            let overlay = document.getElementById('fade-overlay');
+            overlay.style.opacity = 1;
+            let content = document.querySelector('.content-wrapper');
+            content.style.opacity = 0;
+            setTimeout(function () {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'VT323', monospace;
+}
+
+.tile-grid {
+    height: 100vh;
+}
+
+.tile-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+@media (max-width: 767px) {
+    .tile {
+        min-height: 150px;
+    }
+
+    .text-tile {
+        min-height: 200px;
+    }
+}
+
+.tile-gif-bg {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent !important;
+}
+
+.tile-gif-bg .gif-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+.tile-gif-bg span,
+.tile-gif-bg h2,
+.tile-gif-bg p {
+    position: relative;
+    z-index: 2;
+}
+
+.text-tile h2.text-4xl {
+    position: relative;
+    z-index: 3;
+}

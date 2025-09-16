@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeran's Website - Encoder & Decoder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'VT323', monospace;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .content-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #000;
+            border: 1px solid rgba(113, 128, 150, 0.5);
+            border-radius: 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            transition: all 0.2s ease-out;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1.5rem;
+        }
+
+        .action-button:hover {
+            background-color: #1a1a1a;
+            transform: scale(0.98);
+        }
+
+        .action-button .gif-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .action-button span,
+        .action-button svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        #fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .content-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .vhs-flicker-text {
+            text-shadow: 0.06rem 0 0.06rem #f20000, -0.125rem 0 0.06rem #75fa69;
+            animation-duration: 0.01s;
+            animation-name: textflicker;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        @keyframes textflicker {
+            from {
+                text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+            }
+
+            to {
+                text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+            }
+        }
+
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(to bottom,
+                    transparent 0px,
+                    transparent 1px,
+                    rgba(0, 0, 0, 0.2) 1px,
+                    rgba(0, 0, 0, 0.2) 2px);
+            pointer-events: none;
+            z-index: 3;
+            opacity: 0.9;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .controls label,
+        .controls select,
+        .controls textarea,
+        .controls button {
+            background-color: #000;
+            border: 1px solid rgba(113, 128, 150, 0.5);
+            color: #fff;
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            padding: 0.5rem;
+        }
+
+        .controls textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .controls button {
+            background-color: #1a1a1a;
+            transition: background-color 0.2s ease-out;
+            border: 1px solid rgba(113, 128, 150, 0.5);
+            cursor: pointer;
+            padding: 0.75rem 1.5rem;
+            text-transform: lowercase;
+            flex: 1;
+        }
+
+        .controls button:hover {
+            background-color: #333;
+        }
+
+        select option {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .output-textarea-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+        }
+
+        .output-textarea-hidden {
+            width: 100%;
+            height: 100%;
+            min-height: 150px;
+            padding: 0.5rem;
+            background-color: transparent;
+            border: 1px solid rgba(113, 128, 150, 0.5);
+            color: transparent;
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            resize: vertical;
+            caret-color: #fff;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .output-visual-overlay {
+            width: 100%;
+            height: 100%;
+            min-height: 150px;
+            padding: 0.5rem;
+            background-color: #000;
+            border: 1px solid rgba(113, 128, 150, 0.5);
+            color: #fff;
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.5rem;
+            overflow-y: auto;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        @keyframes pulsate-64 {
+            0% {
+                color: #f20000;
+                transform: scale(1);
+            }
+            50% {
+                color: #ff3333;
+                transform: scale(1.05);
+            }
+            100% {
+                color: #f20000;
+                transform: scale(1);
+            }
+        }
+        
+        .pulsating-64 {
+            animation: pulsate-64 1.5s infinite;
+        }
+
+        @keyframes rainbow-glow {
+            0% {
+                color: #ff0000;
+            }
+            14% {
+                color: #ff7f00;
+            }
+            28% {
+                color: #ffff00;
+            }
+            42% {
+                color: #00ff00;
+            }
+            56% {
+                color: #0000ff;
+            }
+            70% {
+                color: #4b0082;
+            }
+            84% {
+                color: #9400d3;
+            }
+            100% {
+                color: #ff0000;
+            }
+        }
+
+        .pulsating-rainbow {
+            animation: rainbow-glow 3s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fade-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-container">
+            <h1 class="text-5xl md:text-6xl lowercase mb-6 vhs-flicker-text">Encoder & Decoder</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-4 vhs-flicker-text">
+                Encode and decode text in various formats.
+            </p>
+
+            <div class="controls">
+                <label for="format-select" class="vhs-flicker-text">select format:</label>
+                <select id="format-select" class="vhs-flicker-text">
+                    <option value="base64">Base64</option>
+                    <option value="url">URL Encoding</option>
+                    <option value="hex">Hexadecimal</option>
+                    <option value="rot13">ROT13</option>
+                </select>
+            </div>
+            
+            <div class="controls">
+                <label for="input-text" class="vhs-flicker-text">input text:</label>
+                <textarea id="input-text" placeholder="enter text here..."></textarea>
+            </div>
+
+            <div class="controls button-group">
+                <button id="encode-btn" class="vhs-flicker-text">encode</button>
+                <button id="decode-btn" class="vhs-flicker-text">decode</button>
+            </div>
+
+            <div class="controls">
+                <label for="output-text" class="vhs-flicker-text">output text:</label>
+                <div class="output-textarea-wrapper">
+                    <textarea id="output-text" class="output-textarea-hidden" readonly></textarea>
+                    <div id="output-visual" class="output-visual-overlay"></div>
+                </div>
+            </div>
+
+            <a href="../projects" class="action-button">
+                <img src="https://i.pinimg.com/originals/80/eb/15/80eb15b74b0e953de799f32cb26a8c61.gif"
+                    alt="Animated Background" class="gif-background" />
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                    </path>
+                </svg>
+                <span class="vhs-flicker-text">Back to Home</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('fade-overlay').style.opacity = 0;
+            document.querySelector('.content-wrapper').style.opacity = 1;
+        });
+
+        function fadeOutAndNavigate(url) {
+            let overlay = document.getElementById('fade-overlay');
+            overlay.style.opacity = 1;
+            let content = document.querySelector('.content-wrapper');
+            content.style.opacity = 0;
+            setTimeout(function () {
+                window.location.href = url;
+            }, 500);
+        }
+
+        const inputTextarea = document.getElementById('input-text');
+        const outputTextarea = document.getElementById('output-text');
+        const outputVisual = document.getElementById('output-visual');
+        const formatSelect = document.getElementById('format-select');
+        const encodeBtn = document.getElementById('encode-btn');
+        const decodeBtn = document.getElementById('decode-btn');
+
+        function updateOutputVisual() {
+            const text = outputTextarea.value;
+            const highlightedText = text.replace(/(64)|(mango|67|41)/g, (match, p1, p2) => {
+                if (p1) {
+                    return `<span class="pulsating-64">${match}</span>`;
+                }
+                if (p2) {
+                    return `<span class="pulsating-rainbow">${match}</span>`;
+                }
+                return match;
+            });
+            outputVisual.innerHTML = highlightedText;
+        }
+
+        const encoders = {
+            base64: (text) => btoa(unescape(encodeURIComponent(text))),
+            url: (text) => encodeURIComponent(text),
+            hex: (text) => {
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    result += text.charCodeAt(i).toString(16).padStart(2, '0');
+                }
+                return result.toUpperCase();
+            },
+            rot13: (text) => text.replace(/[a-zA-Z]/g, (c) =>
+                String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26)
+            )
+        };
+
+        const decoders = {
+            base64: (text) => {
+                try {
+                    return decodeURIComponent(escape(atob(text)));
+                } catch (e) {
+                    return 'Invalid Base64 string';
+                }
+            },
+            url: (text) => decodeURIComponent(text),
+            hex: (text) => {
+                try {
+                    if (text.length % 2 !== 0) {
+                        throw new Error('Invalid Hex string length');
+                    }
+                    let result = '';
+                    for (let i = 0; i < text.length; i += 2) {
+                        result += String.fromCharCode(parseInt(text.substr(i, 2), 16));
+                    }
+                    return result;
+                } catch (e) {
+                    return 'Invalid Hex string';
+                }
+            },
+            rot13: (text) => text.replace(/[a-zA-Z]/g, (c) =>
+                String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) - 13) ? c : c + 26)
+            )
+        };
+
+        encodeBtn.addEventListener('click', () => {
+            const format = formatSelect.value;
+            const inputText = inputTextarea.value;
+            if (encoders[format]) {
+                outputTextarea.value = encoders[format](inputText);
+                updateOutputVisual();
+            } else {
+                outputTextarea.value = 'Error: Encoder not found.';
+                updateOutputVisual();
+            }
+        });
+
+        decodeBtn.addEventListener('click', () => {
+            const format = formatSelect.value;
+            const inputText = inputTextarea.value;
+            if (decoders[format]) {
+                outputTextarea.value = decoders[format](inputText);
+                updateOutputVisual();
+            } else {
+                outputTextarea.value = 'Error: Decoder not found.';
+                updateOutputVisual();
+            }
+        });
+    </script>
+</body>
+
+</html>
