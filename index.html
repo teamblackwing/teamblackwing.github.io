@@ -1,289 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dheeran's Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=VT323&display=swap"
-        rel="stylesheet">
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'VT323', monospace;
-            background-color: black;
-            color: white;
-        }
-
-        .tile-grid {
-            height: 100vh;
-        }
-
-        .tile-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 45px;
-            height: 45px;
-            opacity: 0.9;
-            z-index: 2;
-        }
-
-        @media (max-width: 767px) {
-            .tile {
-                min-height: 150px;
-            }
-
-            .text-tile {
-                min-height: 200px;
-            }
-
-            h2 {
-                font-size: 10rem;
-            }
-        }
-
-        .tile {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tile-gif-bg {
-            background-color: transparent !important;
-        }
-
-        .tile-gif-bg .gif-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0.7;
-        }
-
-        .tile-gif-bg span,
-        .tile-gif-bg h2,
-        .tile-gif-bg p {
-            position: relative;
-            z-index: 2;
-        }
-
-        .text-tile h2.text-4xl {
-            position: relative;
-            z-index: 3;
-        }
-
-        #fade-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .content-wrapper {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .vhs-flicker-text {
-            text-shadow: 0.06rem 0 0.06rem #f20000, -0.125rem 0 0.06rem #75fa69;
-            animation-duration: 0.01s;
-            animation-name: textflicker;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            letter-spacing: 2px;
-        }
-
-        @keyframes textflicker {
-            from {
-                text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
-            }
-            to {
-                text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
-            }
-        }
-
-        .tile::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent 0px,
-                transparent 1px,
-                rgba(0, 0, 0, 0.2) 1px, /* Increased alpha for stronger lines */
-                rgba(0, 0, 0, 0.2) 2px
-            );
-            pointer-events: none;
-            z-index: 3;
-            opacity: 0.9; /* Increased opacity for stronger visibility */
-        }
-    </style>
-
-    <script type="text/javascript">
-        function checkScreenWidthAndRedirect() {
-            if (window.innerWidth < 700) {
-                window.location.href = 'm/';
-            }
-        }
-
-        checkScreenWidthAndRedirect();
-    </script>
+    <title>DHEERAN / 2026</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-black text-white">
-    <div id="fade-overlay"></div>
-
-    <div class="content-wrapper">
-        <div class="tile-grid grid grid-cols-2 md:grid-cols-4 md:grid-rows-4 gap-4 p-4 box-border">
-
-            <div
-                class="tile text-tile bg-black flex flex-col justify-end items-start p-4 col-span-2 md:col-span-2 md:row-span-2 relative overflow-hidden">
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 0.1;">
-                    Dheeran's Website
-                </h2>
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 0.1;">
-                    Dheeran's Website
-                </h2>
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 0.1;">
-                    Dheeran's Website
-                </h2>
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 0.25;">
-                    Dheeran's
-                    Website
-                </h2>
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 0.5;">
-                    Dheeran's Website
-                </h2>
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 0.75;">
-                    Dheeran's
-                    Website
-                </h2>
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2 lowercase z-10 vhs-flicker-text"
-                    style="opacity: 1;">
-                    Dheeran's Website
-                </h2>
-
-                <p class="text-gray-400 text-base md:text-lg max-w-full z-10 vhs-flicker-text">Hey, I'm Dheeran, currently based in
-                    Dubai.
-                    I'm into graphic design, programming, penetration testing, cars and more.</p>
-            </div>
-
-            <a href="#" onclick="fadeOutAndNavigate('/gallery'); return false;"
-                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg">
-                <img src="https://i.pinimg.com/originals/80/eb/15/80eb15b74b0e953de799f32cb26a8c61.gif"
-                    alt="Animated Background" class="gif-background" />
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/pictures-folder.png" alt="Gallery Icon"
-                    class="tile-icon" />
-                <span class="text-xl md:text-2xl lowercase z-10 vhs-flicker-text">gallery</span>
-            </a>
-
-            <a href="#" onclick="fadeOutAndNavigate('/contact'); return false;"
-                class="tile bg-red-600 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-red-700 hover:scale-[0.98] md:row-span-2 tile-gif-bg">
-                <img src="https://i.pinimg.com/originals/03/64/bc/0364bcac79f1fe22bdad755d137cb5cf.gif"
-                    alt="Animated Background" class="gif-background" />
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/new-post.png" alt="Mail Icon"
-                    class="tile-icon" />
-                <span class="text-xl md:text-2xl lowercase z-10 vhs-flicker-text">contact</span>
-            </a>
-
-            <a href="#" onclick="fadeOutAndNavigate('/projects'); return false;"
-                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg">
-                <img src="https://i.pinimg.com/originals/54/c1/96/54c1963eaebc2c5f9d7632f07093b34f.gif"
-                    alt="Animated Background" class="gif-background" />
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/settings.png" alt="Projects Icon"
-                    class="tile-icon" />
-                <span class="text-xl md:text-2xl lowercase z-10 vhs-flicker-text">projects</span>
-            </a>
-
-            <a href="#" onclick="fadeOutAndNavigate('/about'); return false;"
-                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] col-span-2 md:col-span-2 md:row-span-2 tile-gif-bg">
-                <img src="https://www.premiumbeat.com/blog/wp-content/uploads/2020/04/Vaporwave-and-Synthwave-Free-Pack-Video-Game-Look.gif"
-                    alt="Animated Background" class="gif-background" />
-                <span class="text-xl md:text-2xl lowercase z-10 vhs-flicker-text">about</span>
-            </a>
-
-            <a href="#" onclick="fadeOutAndNavigate('/credits'); return false;"
-                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg">
-                <img src="https://64.media.tumblr.com/8ab059228a9cf657db5455f5b1b29327/6f238f65909558d8-67/s540x810/86db62981113cb8cf8f79972de0918ef66aa8204.gif"
-                    alt="Animated Background" class="gif-background" />
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/portfolio.png" alt="Portfolio Icon"
-                    class="tile-icon" />
-                <span class="text-xl md:text-2xl lowercase z-10 vhs-flicker-text">credits</span>
-            </a>
-
-            <a href="#" onclick="fadeOutAndNavigate('/downloads'); return false;"
-                class="tile bg-gray-900 border border-gray-700 border-opacity-50 text-white no-underline flex flex-col justify-end items-start p-4 relative overflow-hidden transition-all duration-200 ease-out hover:bg-gray-800 hover:scale-[0.98] tile-gif-bg">
-                <img src="https://i.pinimg.com/originals/9c/6c/1d/9c6c1dd45a8c98dcb78b46f0f30bfc22.gif"
-                    alt="Animated Background" class="gif-background" />
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/download.png" alt="Downloads Icon"
-                    class="tile-icon" />
-                <span class="text-xl md:text-2xl lowercase z-10 vhs-flicker-text">downloads</span>
-            </a>
-
-            <div
-                class="tile text-tile bg-black border border-gray-700 border-opacity-50 flex flex-col justify-end items-start p-4 relative overflow-hidden tile-gif-bg">
-                <img src="https://i.pinimg.com/originals/e8/3b/09/e83b09228a9cf657db5455f5b1b29327.gif" alt="⠀⠀⠀⠀"
-                    class="gif-background" />
-                <h3 class="text-xl md:text-2xl lowercase mb-1 z-10 vhs-flicker-text">Under Construction</h3>
-                <p class="text-gray-400 text-sm md:text-base max-w-[90%] z-10 vhs-flicker-text">There's nothing here, not yet that is.
-                </p>
-            </div>
-
-            <div class="tile text-tile bg-black flex flex-col justify-end items-start p-4 relative overflow-hidden">
-                <h3 class="text-xl md:text-2xl lowercase mb-1 z-10 vhs-flicker-text">Made with Love</h3>
-                <p class="text-gray-400 text-sm md:text-base max-w-[90%] z-10 vhs-flicker-text">I sure do love building websites </p>
-            </div>
-
-        </div>
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Full view">
     </div>
 
-    <script>
-        function checkScreenWidthAndRedirect() {
-            if (window.innerWidth < 700) {
-                window.location.href = 'm/';
-            }
-        }
+    <div class="frame">
+        <nav>
+            <div class="logo" id="logo-egg" onclick="heartExplosion(event)">39x64</div>
+            
+            <div class="nav-right">
+                <button id="theme-toggle" class="mono">MODE_SWITCH</button>
+                <div class="links">
+                    <a href="#about">ABOUT</a>
+                    <a href="#projects">PROJECTS</a>
+                    <a href="#archive">ARCHIVE</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+            </div>
+        </nav>
 
-        checkScreenWidthAndRedirect();
+        <header>
+            <span class="label">INDEX '26</span>
+            <h1>DHEERAN's <br> WEBSITE.</h1>
+            <p class="mono">Graphic design / 3D modeling / Programming.</p>
+        </header>
 
-        window.addEventListener('load', function () {
-            document.getElementById('fade-overlay').style.opacity = 0;
-            document.querySelector('.content-wrapper').style.opacity = 1;
-        });
+        <section id="about">
+            <span class="label">01 / BIO</span>
+            <div class="content">
+                <p>Mainly into graphic design, 3D modeling, and programming. Lately, I've been messing around with penetration testing, exploring vulnerabilities on devices. I’m also a massive car nerd. The engineering and design that goes into them is probably the coolest thing to me. When I’m not doing that, I’m making music for myself or tinkering with old tech. I still get a lot of use out of my jailbroken iPhone 4 and my iPod Shuffle.</p>
+            </div>
+        </section>
 
-        function fadeOutAndNavigate(url) {
-            let overlay = document.getElementById('fade-overlay');
-            overlay.style.opacity = 1;
-            let content = document.querySelector('.content-wrapper');
-            content.style.opacity = 0;
-            setTimeout(function () {
-                window.location.href = url;
-            }, 500);
-        }
-    </script>
+        <section id="projects">
+            <span class="label">02 / PROJECTS</span>
+            
+            <div class="project-card">
+                <div class="card-header">
+                    <h2>AIRBORNE</h2>
+                    <span class="status">STEM_RACING</span>
+                </div>
+                <div class="card-body">
+                    <p class="mono">Graphics / CAD Engineer / Team Identity.</p>
+                    <p class="awards">Best Pit Display '25 / Best Enterprise '25</p>
+                    <p class="desc">Leading the design and technical identity for our racing team.</p>
+                    <a href="https://airbornef1.com" target="_blank" class="btn-project mono">VIEW PROJECT</a>
+                </div>
+            </div>
+
+            <div class="project-card" style="margin-top: 20px;">
+                <div class="card-header">
+                    <h2>LOVHACK S2</h2>
+                    <span class="status">HACKATHON</span>
+                </div>
+                <div class="card-body">
+                    <p class="mono">Web Development / Competition.</p>
+                    <p class="desc">Currently competing in the LovHack Season 2 Hackathon.</p>
+                    <a href="https://lovhack-season2.devpost.com/" target="_blank" class="btn-project mono">VIEW DEVPOST</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="archive">
+            <span class="label">03 / ARCHIVE</span>
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="images/1.jpg" onclick="openImage(this.src)">
+                    <img src="images/2.jpg" onclick="openImage(this.src)">
+                    <img src="images/3.jpg" onclick="openImage(this.src)">
+                    <img src="images/4.jpg" onclick="openImage(this.src)">
+                    <img src="images/5.jpg" onclick="openImage(this.src)">
+                    <img src="images/6.jpg" onclick="openImage(this.src)">
+                    <img src="images/7.jpg" onclick="openImage(this.src)">
+                    <img src="images/8.jpg" onclick="openImage(this.src)">
+                    <img src="images/9.jpg" onclick="openImage(this.src)">
+                    <img src="images/10.jpg" onclick="openImage(this.src)">
+                    <img src="images/11.jpg" onclick="openImage(this.src)">
+                    <img src="images/1.jpg" onclick="openImage(this.src)">
+                    <img src="images/2.jpg" onclick="openImage(this.src)">
+                    <img src="images/3.jpg" onclick="openImage(this.src)">
+                    <img src="images/4.jpg" onclick="openImage(this.src)">
+                    <img src="images/5.jpg" onclick="openImage(this.src)">
+                    <img src="images/6.jpg" onclick="openImage(this.src)">
+                    <img src="images/7.jpg" onclick="openImage(this.src)">
+                    <img src="images/8.jpg" onclick="openImage(this.src)">
+                    <img src="images/9.jpg" onclick="openImage(this.src)">
+                    <img src="images/10.jpg" onclick="openImage(this.src)">
+                    <img src="images/11.jpg" onclick="openImage(this.src)">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <span class="label">04 / CONNECT</span>
+            <div class="contact-grid">
+                <a href="mailto:dheerandps@gmail.com" class="big-link">EMAIL</a>
+                <a href="https://github.com/teamblackwing" target="_blank" class="big-link">GITHUB</a>
+                <a href="https://www.youtube.com/@cr6w" target="_blank" class="big-link">YOUTUBE</a>
+                <a href="https://discord.com/users/652490335578226709" target="_blank" class="big-link">DISCORD</a>
+            </div>
+        </section>
+
+        <footer>
+            <span>39x64</span>
+            <span class="mono">© 2026</span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
