@@ -17,34 +17,19 @@ function off() {
     document.getElementById('v').classList.remove('on');
 }
 
-function pop(e) {
-    const clr = ['#ff0000', '#ff69b4', '#ff1493', '#db7093'];
-    for (let i = 0; i < 12; i++) {
-        const h = document.createElement('div');
-        h.className = 'p';
-        h.innerHTML = '❤';
-        h.style.left = e.clientX + 'px';
-        h.style.top = e.clientY + 'px';
-        h.style.color = clr[Math.floor(Math.random() * clr.length)];
-        
-        const x = (Math.random() - 0.5) * 200;
-        const y = (Math.random() - 0.5) * 200 - 100;
-        h.style.setProperty('--x', `${x}px`);
-        h.style.setProperty('--y', `${y}px`);
-        
-        document.body.appendChild(h);
-        setTimeout(() => h.remove(), 1000);
-    }
-}const btn = document.getElementById('theme-toggle');
-btn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    btn.textContent = document.body.classList.contains('dark-mode') ? 'LIGHT_MODE' : 'DARK_MODE';
-});
+function pop() {
+    const h = document.getElementById('heart-box');
+    
+    // reset first
+    h.classList.remove('on');
+    
+    // force a tiny delay so the transition triggers
+    setTimeout(() => {
+        h.classList.add('on');
+    }, 10);
 
-function openImage(src) {
-    const lb = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
-    img.src = src;
-    lb.classList.add('active');
+    // hide after 1 second
+    setTimeout(() => {
+        h.classList.remove('on');
+    }, 1000);
 }
-
