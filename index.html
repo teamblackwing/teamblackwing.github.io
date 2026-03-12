@@ -6,19 +6,18 @@
     <title>DHEERAN / 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="b">
 
-    <div id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="Full view">
+    <div id="v" onclick="off()">
+        <img id="z" src="" alt="">
     </div>
 
-    <div class="frame">
+    <div class="f">
         <nav>
-            <div class="logo" id="logo-egg" onclick="heartExplosion(event)">39x64</div>
-            
-            <div class="nav-right">
-                <button id="theme-toggle" class="mono">MODE_SWITCH</button>
-                <div class="links">
+            <div class="l" onclick="pop(event)">39x64</div>
+            <div class="nr">
+                <button id="bn-v" class="m">MODE_SWITCH</button>
+                <div class="ln">
                     <a href="#about">ABOUT</a>
                     <a href="#projects">PROJECTS</a>
                     <a href="#archive">ARCHIVE</a>
@@ -28,93 +27,90 @@
         </nav>
 
         <header>
-            <span class="label">INDEX '26</span>
+            <span class="tag">INDEX '26</span>
             <h1>DHEERAN's <br> WEBSITE.</h1>
-            <p class="mono">Graphic design / 3D modeling / Programming.</p>
+            <p class="m">Graphic design / 3D modeling / Programming.</p>
         </header>
 
-        <section id="about">
-            <span class="label">01 / BIO</span>
-            <div class="content">
+        <section id="about" class="s">
+            <span class="tag">01 / BIO</span>
+            <div class="t">
                 <p>Mainly into graphic design, 3D modeling, and programming. Lately, I've been messing around with penetration testing, exploring vulnerabilities on devices. I’m also a massive car nerd. The engineering and design that goes into them is probably the coolest thing to me. When I’m not doing that, I’m making music for myself or tinkering with old tech. I still get a lot of use out of my jailbroken iPhone 4 and my iPod Shuffle.</p>
             </div>
         </section>
 
-        <section id="projects">
-            <span class="label">02 / PROJECTS</span>
-            
-            <div class="project-card">
-                <div class="card-header">
+        <section id="projects" class="s">
+            <span class="tag">02 / PROJECTS</span>
+            <div class="c">
+                <div class="ch">
                     <h2>AIRBORNE</h2>
-                    <span class="status">STEM_RACING</span>
+                    <span class="st">STEM_RACING</span>
                 </div>
-                <div class="card-body">
-                    <p class="mono">Graphics / CAD Engineer / Team Identity.</p>
-                    <p class="awards">Best Pit Display '25 / Best Enterprise '25</p>
-                    <p class="desc">Leading the design and technical identity for our racing team.</p>
-                    <a href="https://airbornef1.com" target="_blank" class="btn-project mono">VIEW PROJECT</a>
+                <div class="cb">
+                    <p class="m">Graphics / CAD Engineer / Team Identity.</p>
+                    <p class="aw">Best Pit Display '25 / Best Enterprise '25</p>
+                    <p>Leading the design and technical identity for our racing team.</p>
+                    <a href="https://airbornef1.com" target="_blank" class="bn-l m">VIEW PROJECT</a>
                 </div>
             </div>
-
-            <div class="project-card" style="margin-top: 20px;">
-                <div class="card-header">
+            <div class="c" style="margin-top:20px">
+                <div class="ch">
                     <h2>LOVHACK S2</h2>
-                    <span class="status">HACKATHON</span>
+                    <span class="st">HACKATHON</span>
                 </div>
-                <div class="card-body">
-                    <p class="mono">Web Development / Competition.</p>
-                    <p class="desc">Currently competing in the LovHack Season 2 Hackathon.</p>
-                    <a href="https://lovhack-season2.devpost.com/" target="_blank" class="btn-project mono">VIEW DEVPOST</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="archive">
-            <span class="label">03 / ARCHIVE</span>
-            <div class="marquee">
-                <div class="marquee-content">
-                    <img src="images/1.jpg" onclick="openImage(this.src)">
-                    <img src="images/2.jpg" onclick="openImage(this.src)">
-                    <img src="images/3.jpg" onclick="openImage(this.src)">
-                    <img src="images/4.jpg" onclick="openImage(this.src)">
-                    <img src="images/5.jpg" onclick="openImage(this.src)">
-                    <img src="images/6.jpg" onclick="openImage(this.src)">
-                    <img src="images/7.jpg" onclick="openImage(this.src)">
-                    <img src="images/8.jpg" onclick="openImage(this.src)">
-                    <img src="images/9.jpg" onclick="openImage(this.src)">
-                    <img src="images/10.jpg" onclick="openImage(this.src)">
-                    <img src="images/11.jpg" onclick="openImage(this.src)">
-                    <img src="images/1.jpg" onclick="openImage(this.src)">
-                    <img src="images/2.jpg" onclick="openImage(this.src)">
-                    <img src="images/3.jpg" onclick="openImage(this.src)">
-                    <img src="images/4.jpg" onclick="openImage(this.src)">
-                    <img src="images/5.jpg" onclick="openImage(this.src)">
-                    <img src="images/6.jpg" onclick="openImage(this.src)">
-                    <img src="images/7.jpg" onclick="openImage(this.src)">
-                    <img src="images/8.jpg" onclick="openImage(this.src)">
-                    <img src="images/9.jpg" onclick="openImage(this.src)">
-                    <img src="images/10.jpg" onclick="openImage(this.src)">
-                    <img src="images/11.jpg" onclick="openImage(this.src)">
+                <div class="cb">
+                    <p class="m">Web Development / Competition.</p>
+                    <p>Currently competing in the LovHack Season 2 Hackathon.</p>
+                    <a href="https://lovhack-season2.devpost.com/" target="_blank" class="bn-l m">VIEW DEVPOST</a>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <span class="label">04 / CONNECT</span>
-            <div class="contact-grid">
-                <a href="mailto:dheerandps@gmail.com" class="big-link">EMAIL</a>
-                <a href="https://github.com/teamblackwing" target="_blank" class="big-link">GITHUB</a>
-                <a href="https://www.youtube.com/@cr6w" target="_blank" class="big-link">YOUTUBE</a>
-                <a href="https://discord.com/users/652490335578226709" target="_blank" class="big-link">DISCORD</a>
+        <section id="archive" class="s">
+            <span class="tag">03 / ARCHIVE</span>
+            <div class="mw">
+                <div class="ms">
+                    <img src="images/1.jpg" onclick="go(this.src)">
+                    <img src="images/2.jpg" onclick="go(this.src)">
+                    <img src="images/3.jpg" onclick="go(this.src)">
+                    <img src="images/4.jpg" onclick="go(this.src)">
+                    <img src="images/5.jpg" onclick="go(this.src)">
+                    <img src="images/6.jpg" onclick="go(this.src)">
+                    <img src="images/7.jpg" onclick="go(this.src)">
+                    <img src="images/8.jpg" onclick="go(this.src)">
+                    <img src="images/9.jpg" onclick="go(this.src)">
+                    <img src="images/10.jpg" onclick="go(this.src)">
+                    <img src="images/11.jpg" onclick="go(this.src)">
+                    <img src="images/1.jpg" onclick="go(this.src)">
+                    <img src="images/2.jpg" onclick="go(this.src)">
+                    <img src="images/3.jpg" onclick="go(this.src)">
+                    <img src="images/4.jpg" onclick="go(this.src)">
+                    <img src="images/5.jpg" onclick="go(this.src)">
+                    <img src="images/6.jpg" onclick="go(this.src)">
+                    <img src="images/7.jpg" onclick="go(this.src)">
+                    <img src="images/8.jpg" onclick="go(this.src)">
+                    <img src="images/9.jpg" onclick="go(this.src)">
+                    <img src="images/10.jpg" onclick="go(this.src)">
+                    <img src="images/11.jpg" onclick="go(this.src)">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="s">
+            <span class="tag">04 / CONNECT</span>
+            <div class="g">
+                <a href="mailto:dheerandps@gmail.com" class="bn-f">EMAIL</a>
+                <a href="https://github.com/teamblackwing" target="_blank" class="bn-f">GITHUB</a>
+                <a href="https://www.youtube.com/@WWDheeran" target="_blank" class="bn-f">YOUTUBE</a>
+                <a href="https://discord.com/users/652490335578226709" target="_blank" class="bn-f">DISCORD</a>
             </div>
         </section>
 
         <footer>
             <span>39x64</span>
-            <span class="mono">© 2026</span>
+            <span class="m">© 2026</span>
         </footer>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
