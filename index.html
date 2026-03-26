@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHEERAN / 2026</title>
+    <title>Dheeran's Website.</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="b">
@@ -16,58 +16,94 @@
         <nav>
             <div class="l" onclick="pop()">39x64</div>
             <div class="nr">
-                <button id="bn-v" class="m">MODE_SWITCH</button>
                 <div class="ln">
-                    <a href="#about">ABOUT</a>
-                    <a href="#projects">PROJECTS</a>
-                    <a href="#archive">ARCHIVE</a>
-                    <a href="#contact">CONTACT</a>
+                    <a href="#about">About</a>
+                    <a href="#achievements">Achievements</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#archive">Pictures</a>
+                    <a href="#contact">Contact</a>
+                    <a href="javascript:void(0)" id="bn-v" style="cursor: pointer;">Dark Mode</a>
                 </div>
             </div>
         </nav>
 
         <header>
-            <span class="tag">INDEX '26</span>
             <h1>DHEERAN's <br> WEBSITE.</h1>
-            <p class="m">Graphic design / 3D modeling / Programming.</p>
         </header>
 
         <section id="about" class="s">
-            <span class="tag">01 / BIO</span>
+            <span class="tag">01 / About Me</span>
             <div class="t">
                 <p>Mainly into graphic design, 3D modeling, and programming. Lately, I've been messing around with penetration testing, exploring vulnerabilities on devices. I’m also a massive car nerd. The engineering and design that goes into them is probably the coolest thing to me. When I’m not doing that, I’m making music for myself or tinkering with old tech. I still get a lot of use out of my jailbroken iPhone 4 and my iPod Shuffle.</p>
             </div>
         </section>
 
-        <section id="projects" class="s">
-            <span class="tag">02 / PROJECTS</span>
-            <div class="c">
-                <div class="ch">
-                    <h2>AIRBORNE</h2>
-                    <span class="st">STEM_RACING</span>
+        <section id="achievements" class="s">
+            <span class="tag">02 / Achievements</span>
+            <div class="h-s"> <div class="c">
+                    <div class="ch">
+                        <h2>Claude Code in Action</h2>
+                    </div>
+                    <div class="cb">
+                        <p class="aw">Online Course</p>
+                        <a href="https://verify.skilljar.com/c/nci98hw5stnb" target="_blank" class="bn-l m">VIEW CERTIFICATE</a>
+                    </div>
                 </div>
-                <div class="cb">
-                    <p class="m">Graphics / CAD Engineer / Team Identity.</p>
-                    <p class="aw">Best Pit Display '25 / Best Enterprise '25</p>
-                    <p>StemRacing (formerly F1 in Schools) team based in the UAE.</p>
-                    <a href="https://airbornef1.com" target="_blank" class="bn-l m">VIEW PROJECT</a>
+                <div class="c">
+                    <div class="ch">
+                        <h2>Claude 101</h2>
+                    </div>
+                    <div class="cb">
+                        <p class="aw">Online Course</p>
+                        <a href="#" target="_blank" class="bn-l m">VIEW CERTIFICATE</a>
+                    </div>
                 </div>
-            </div>
-            <div class="c" style="margin-top:20px">
-                <div class="ch">
-                    <h2>LOVHACK S2</h2>
-                    <span class="st">HACKATHON</span>
+                <div class="c">
+                    <div class="ch">
+                        <h2>Blackwing '25</h2>
+                    </div>
+                    <div class="cb">
+                        <p class="aw">StemRacing Nationals '25 8th/56 teams.</p>
+                        <a href="#" target="_blank" class="bn-l m">VIEW CERTIFICATE</a>
+                    </div>
                 </div>
-                <div class="cb">
-                    <p class="m">Web Development / Competition.</p>
-                    <p>Currently competing in the LovHack Season 2 Hackathon.</p>
-                    <a href="https://lovhack-season2.devpost.com/" target="_blank" class="bn-l m">VIEW DEVPOST</a>
-                </div>
+        
             </div>
         </section>
 
+
+        <section id="projects" class="s">
+            <span class="tag">03 / My Projects</span>
+            <div class="p-s"> <div class="c">
+                    <div class="ch">
+                        <h2>Airborne</h2>
+                        <span class="st">Stem Racing</span>
+                    </div>
+                    <div class="cb">
+                        <p class="m">Graphics / CAD Engineer / Team Identity</p>
+                        <p class="aw">Best Pit Display '25 / Best Enterprise '25</p>
+                        <p>StemRacing team based in the UAE.</p>
+                        <a href="https://airbornef1.com" target="_blank" class="bn-l m">VIEW PROJECT</a>
+                    </div>
+                </div>
+                <br>
+                <div class="c">
+                    <div class="ch">
+                        <h2>Claro</h2>
+                        <span class="st">LovHack S2</span>
+                    </div>
+                    <div class="cb">
+                        <p class="m">Graphics / Web design / Backend</p>
+                        <p class="aw">Ongoing Competition.</p>
+                        <p>Turns complex documents into clear, readable explanations.</p>
+                        <a href="https://github.com/Reyansh2323/Claro" target="_blank" class="bn-l m">VIEW PROJECT</a>
+                    </div>
+                </div>
+                </div>
+        </section>
+
         <section id="archive" class="s">
-            <span class="tag">03 / ARCHIVE</span>
+            <span class="tag">04 / Photo Archive</span>
             <div class="mw">
                 <div class="ms">
                     <img src="images/1.jpg" onclick="go(this.src)">
@@ -97,18 +133,20 @@
         </section>
 
         <section id="contact" class="s">
-            <span class="tag">04 / CONNECT</span>
+            <span class="tag">05 / Contact Me</span>
             <div class="g">
                 <a href="mailto:dheerandps@gmail.com" class="bn-f">EMAIL</a>
                 <a href="https://github.com/teamblackwing" target="_blank" class="bn-f">GITHUB</a>
-                <a href="https://www.youtube.com/@WWDheeran" target="_blank" class="bn-f">YOUTUBE</a>
+                <a href="https://www.youtube.com/@cr6w" target="_blank" class="bn-f">YOUTUBE</a>
                 <a href="https://discord.com/users/652490335578226709" target="_blank" class="bn-f">DISCORD</a>
             </div>
         </section>
 
         <footer>
-            <span>39x64</span>
-            <span class="m">© 2026</span>
+            <span>
+                Inspired by <a href="https://wpa-sec.stanev.org/">WPA_SEC</a>, <a href="https://yeezy.com/">Yeezy</a> and <a href="https://straw.page/">Straw.page</a>. 
+            </span>
+            <span class="m"></span>
         </footer>
     </div>
 
