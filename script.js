@@ -10,7 +10,8 @@ function off() {
 }
 
 function pop() {
-    const h = document.getElementById('heart-box');
+    /* nirvana reference */
+    const h = document.getElementById('heart-shaped-box');
     
     h.classList.remove('on');
     
