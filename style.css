@@ -305,7 +305,8 @@ footer {
     border-top: var(--l);
 }
 
-#heart-box {
+/* nirvana reference */
+#heart-shaped-box {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -317,7 +318,7 @@ footer {
     opacity: 0;
 }
 
-#heart-box.on {
+#heart-shaped-box.on {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
@@ -368,4 +369,54 @@ footer {
     height: 100%;
     z-index: 1001;
     background: transparent;
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .ln {
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .ln a, #bn-v {
+        margin-left: 0;
+        margin-right: 10px;
+        white-space: nowrap;
+    }
+
+    .h-s .c {
+        min-width: 100%;
+    }
+
+    .c h3, .ch h3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.2;
+        height: 2.4em;
+    }
+
+    .f {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .s p, .m {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .bn-f {
+        padding: 15px;
+        font-size: 11px;
+    }
 }
