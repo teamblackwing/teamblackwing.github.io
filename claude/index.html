@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeran | Claude Directory</title>
+
+    <style>
+        :root {
+            --b: #fff;
+            --f: #000;
+            --g: #a1a1a1;
+            --l: 1px solid var(--f);
+            --font: ui-monospace, 'Cascadia Code', monospace;
+        }
+
+        body.d {
+            --b: #000;
+            --f: #fff;
+            --g: #444;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--b);
+            color: var(--f);
+            font-family: var(--font);
+            padding: 20px;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        body::-webkit-scrollbar { 
+            display: none; 
+        }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            border: var(--l);
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .title-group h1 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            line-height: 1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .title-group .desc {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-top: 12px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+            padding-top: 4px;
+        }
+
+        .nav-link { 
+            cursor: pointer; 
+            user-select: none; 
+            font-weight: bold; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            text-decoration: none;
+            color: inherit;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: opacity 0.2s;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+        }
+
+        .bn-stack {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .course-bn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: var(--l);
+            padding: 18px 20px;
+            text-decoration: none;
+            color: inherit;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            background: var(--b);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .course-bn:hover:not(.pending) {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0px var(--f);
+        }
+
+        .course-bn.done {
+            background: var(--f);
+            color: var(--b);
+            border-color: var(--f);
+        }
+
+        .course-bn.done:hover {
+            opacity: 0.9;
+        }
+
+        .course-bn.pending {
+            color: var(--g);
+            border-color: var(--g);
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .status-badge {
+            font-size: 9px;
+            border: 1px solid currentColor;
+            padding: 2px 8px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container { 
+                padding: 30px 15px; 
+                margin: 10px auto; 
+            }
+            header { 
+                flex-direction: column-reverse; 
+                gap: 20px; 
+            }
+            .controls { 
+                align-self: flex-end; 
+            }
+            .course-bn { 
+                font-size: 10px; 
+                padding: 14px 15px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="title-group">
+                <h1>Dheeran's Completed<br>Claude Courses</h1>
+                <p class="desc">Cuz why not, i'll do all of them lol.</p>
+            </div>
+
+            <div class="controls">
+                <a href="../" class="nav-link">Home</a>
+                <button class="nav-link" onclick="document.body.classList.toggle('d')">
+                    Light/Dark
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="bn-stack">
+                <a href="https://verify.skilljar.com/c/veffycy9c8x5" target="_blank" class="course-bn done">
+                    <span>01 Claude 101</span>
+                    <span class="status-badge">Verified</span>
+                </a>
+
+                <a href="https://verify.skilljar.com/c/nci98hw5stnb" target="_blank" class="course-bn done">
+                    <span>02 Claude Code in Action</span>
+                    <span class="status-badge">Verified</span>
+                </a>
+
+                <a href="https://verify.skilljar.com/c/qzhwuopaiihc" target="_blank" class="course-bn done">
+                    <span>03 Intro to Claude Cowork</span>
+                    <span class="status-badge">Verified</span>
+                </a>
+                
+                <a href="#" class="course-bn pending">04 AI Fluency: Framework and Foundations</a>
+                <a href="#" class="course-bn pending">05 Building with the Claude API</a>
+                <a href="#" class="course-bn pending">06 Intro to Model Context Protocol</a>
+                <a href="#" class="course-bn pending">07 AI Fluency for Educators</a>
+                <a href="#" class="course-bn pending">08 AI Fluency for Students</a>
+                <a href="#" class="course-bn pending">09 MCP: Advanced Topics</a>
+                <a href="#" class="course-bn pending">10 Claude with Amazon Bedrock</a>
+                <a href="#" class="course-bn pending">11 Claude with Google Cloud Vertex AI</a>
+                <a href="#" class="course-bn pending">12 Teaching AI Fluency</a>
+                <a href="#" class="course-bn pending">13 AI Fluency for Nonprofits</a>
+                <a href="#" class="course-bn pending">14 Introduction to Agent Skills</a>
+                <a href="#" class="course-bn pending">15 Introduction to Subagents</a>
+                <a href="#" class="course-bn pending">16 Prompt Engineering for Devs</a>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
